@@ -1,0 +1,22 @@
+spring:
+  profiles.active: prod
+---
+spring:
+  profiles: prod
+  jpa:
+    show-sql:  true
+    hibernate.ddl-auto: none
+    database:  SQL_SERVER
+    database-platform:  org.hibernate.dialect.Oracle11gDialect
+  datasource:
+    url:  "jdbc:driver"
+    username:
+    password:
+    # driver-class-name:  com.microsoft.sqlserver.jdbc.SQLServerDriver
+  cache:
+    caffeine:
+      spec: recordStats,maximumSize=500,expireAfterWrite=60s
+  jackson:
+    serialization:
+       write_dates_as_timestamps: true
+  jmx.enabled: false
